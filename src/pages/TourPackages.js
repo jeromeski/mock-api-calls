@@ -3,7 +3,9 @@ import { useGetPackages, useGetReviews } from "../api/get-resources";
 
 function TourPackages() {
   const [packages, setPackages] = useState();
+  const [reviews, setReviews] = useState();
 
+  const { data: _reviews } = useGetReviews();
   const { data: _packages } = useGetPackages();
 
   useEffect(() => {
@@ -17,9 +19,6 @@ function TourPackages() {
       console.log(packages);
     }
   }, [packages]);
-
-  const [reviews, setReviews] = useState();
-  const { data: _reviews } = useGetReviews();
 
   useEffect(() => {
     if (_reviews) {

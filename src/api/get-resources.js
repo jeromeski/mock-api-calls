@@ -15,7 +15,6 @@ mock
   .reply(200, { packages })
   .onGet("/reviews")
   .reply(200, { reviews });
-// mock2.onGet("/reviews").reply(200, { reviews });
 
 async function getPackages() {
   try {
@@ -32,8 +31,6 @@ export function useGetPackages() {
 async function getReviews() {
   try {
     return await axios.get(API_ENDPOINTS.REVIEWS).then((res) => res.data);
-    // const res = await axios.get("/keywords");
-    // return res;
   } catch (error) {
     throw new Error(error);
   }
